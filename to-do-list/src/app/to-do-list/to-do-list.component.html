@@ -1,0 +1,26 @@
+<div style="margin-bottom: 10px;">
+    <input #name />
+    <button (click)="name.value && addItem(name.value) && name.value = '';">Add</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Completed</th>
+            <th>Created</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of items; track item) {
+            <tr class="{{ item.completed ? 'completed' : '' }}">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td><input type="checkbox" [checked]="item.completed" (change)="updateStatus(item.id, status.checked)" #status /></td>
+                <td>{{ item.created.toDateString() }}</td>
+                <td><button (click)="removeItem(item.id)">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
