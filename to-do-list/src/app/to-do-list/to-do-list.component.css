@@ -1,0 +1,11 @@
+table {
+    vertical-align: middle;
+}
+
+.input-section {
+    margin-bottom: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
